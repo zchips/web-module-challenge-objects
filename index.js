@@ -16,10 +16,13 @@ The function should:
 */
 
 
-function createMenuItem(/*Your code here*/){
+function createMenuItem(name, price, category){
   /*Your code here*/
+return { name, price, category}
 }
 
+console.log('task 1a:', createMenuItem('tacos', 8, 'Lunch'))
+ 
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b (not auto-tested): 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -32,6 +35,9 @@ Test your createMenuItems function by doing the following:
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
 
+console.log('task 1b:', createMenuItem('Sub', 5, 'Breakfast/Lunch'))
+console.log('task 1b:', createMenuItem('Pancakes', 5, 'Breakfast/Lunch'))
+console.log('task 1b:', createMenuItem('Steak', 5, 'Dinner'))
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -52,9 +58,21 @@ const burger = {
   price: 18, 
   category: "Lunch", 
   
+discount: function(person){
+  if(person === 'Teacher' || person === 'Veteran' || person === 'Student'){
+    return this.price - (this.price * .25)
+  } else if(person === 'public'){
+    return this.price - (this.price * .10)
+  } else{
+    return "sorry employees don't receive discounts"
+  }
 }
 
+}
 
+burger.discount("Teacher")
+
+console.log('task 2:', burger.discount("Veteran", "Teacher"))
 
 ///////////////Reviews (MVP)///////////////////
 const reviews = [

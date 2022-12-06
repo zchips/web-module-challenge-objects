@@ -53,27 +53,27 @@ Using the burger object below do the following:
 */
 
 
-const burger = {
+ const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
   
 discount: function(person){
-  if(person === 'Teacher' || person === 'Student'){
+  if(person === 'teacher' || person === 'student'){
     return this.price - (this.price * .25)
-  } else if(person === 'Public'){
+  } else if(person === 'public'){
     return this.price - (this.price * .10)
   } else{
-    // return "sorry employees don't receive discounts"
+    return "sorry employees don't receive discounts"
   }
 }
 
 }
 
-// burger.discount("Teacher")
+burger.discount("Teacher")
 // burger.discount("Public")
 
-console.log('task 2:', burger.discount('Student'))
+console.log('task 2:', burger.discount('Teacher'));
 
 ///////////////Reviews (MVP)///////////////////
 const reviews = [
@@ -92,7 +92,7 @@ Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
 
-console.log('task 3', reviews[5])
+console.log('task 3', reviews[5].feedback)
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4 (not auto-tested): 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Reyna's feedback is missing! Use what you know to do the following: (no function needed) 
@@ -100,9 +100,13 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
   2. log the reviews array to the console to check your work
 */
 
-reviews[7] = 'this place is chill with really cool people, great for getting work done on weekdays'
+reviews[7].feedback = 'this place is chill with really cool people, great for getting work done on weekdays'
 
-console.log('task 4', reviews[7])
+// reviews.push({name:'Zach', rating: 6, feedback:'this is a pretty good spot'})
+
+
+
+console.log('task 4', reviews)
 
 
 
@@ -120,8 +124,8 @@ Use the addReview function below to do the following:
 
 function addReview(array, name, rating, feedback){
   /*Your Code Here */
-  // array.push(name, rating, feedback);
-  // return array
+  array.push({name, rating, feedback});
+  return array
 }
 // addReview('task 5', 'Billy', 2, 'Lame menu!')
 // console.log('task 5', 'Billy', 2, 'Lame menu!')
@@ -137,13 +141,12 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(array, filteredIndex, key, value) {
+function getReviewByIndex(array, number) {
   /*Your code here*/
-  array[filteredIndex][key]= value;
-  return array
+  return `${array[number].name} gave the restaurant a ${array[number].rating} star review, and their feedback was: ${array[number].feedback}`;
 }
 
-  getReviewByIndex(reviews, 0)
+  // getReviewByIndex(reviews, 0)
 console.log('task 6', getReviewByIndex(reviews, 3))
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
